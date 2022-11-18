@@ -1,15 +1,14 @@
-import { Col, Row, Spin } from "antd";
-import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { Card, Col, Row, Spin, Table, Dropdown, Menu, Space } from "antd";
 import ListView from "./ListNode";
 import TableView from "./TableNode";
 import StatisticView from "./StatisticNode";
 import ChartView from "./ChartNode";
+import { useSelector } from "react-redux";
+import TableView2 from "./TableNode/TableView2";
 
 const Node = ({ tabledetail, filter, handleRowClick, loading }) => {
-  const params = useParams();
-  const history = useHistory();
-
+  const {componentData} = useSelector(state => ({...state}))
+  const view1Table = componentData.find((item) => item.slug === "test-view2")
   return (
     <>
       {loading ? (
@@ -71,6 +70,13 @@ const Node = ({ tabledetail, filter, handleRowClick, loading }) => {
                   </Col>
                 );
             })}
+            {tabledetail?.slug === "test-view2" && componentData.length > 0 ? (
+                <Col
+                  span={24}
+                >
+                  <TableView2 actions={view1Table?.data.actions} columns={view1Table?.data.columns} results={view1Table?.data.result} handleRowClick={handleRowClick} />
+                </Col>
+              ) : (<></>)}
           </Row>
         </>
       )}
