@@ -41,16 +41,7 @@ export const getViewData = (viewType) => {
 export const getTableDetails = (slugType, filter) => {
   if (slugType === TableSlug1) return table1Data;
   if (slugType === TableSlug2) return table2Data;
-  if (slugType === TableSlug3) {
-    if (filter) {
-      return {
-        ...table3Data,
-        result: table3Data.result.filter((row) => row.id === filter),
-      };
-    } else {
-      return table3Data;
-    }
-  }
+  if (slugType === TableSlug3) return table3Data;
 };
 export const getListDetails = () => {
   return listdata;
