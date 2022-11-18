@@ -1,5 +1,7 @@
 export const View1Slug = "test-view1";
 export const View2Slug = "test-view2";
+export const View3Slug = "test-view3";
+export const View4Slug = "test-view4";
 export const TableSlug1 = "test-view1";
 export const TableSlug2 = "test-view2";
 export const TableSlug3 = "test-view3";
@@ -107,8 +109,7 @@ export const view2Data = {
         height: 8, // Assume one full screen is 24
         node: {
           id: "1939184701938",
-          name: "Test ",
-          node_type: "group-column-chart", // https://charts.ant.design/en/examples/column/grouped#basic
+          name: "Test ",// https://charts.ant.design/en/examples/column/grouped#basic
           order_number: 2,
           slug: "group-column-chart-1",
           node_type: "chart",
@@ -160,6 +161,9 @@ export const view2Data = {
   ],
   workspace_id: 19841279847129,
 };
+
+export const view3Data = {}
+export const view4Data = {}
 
 export const table1Data = {
   actions: [
@@ -235,6 +239,7 @@ export const table1Data = {
   ],
 };
 
+// Displayed on view 1
 export const table2Data = {
   actions: [
     {
@@ -309,6 +314,7 @@ export const table2Data = {
   ],
 };
 
+// Displayed at last in view 2
 export const table3Data = {
   actions: [
     {
@@ -382,6 +388,7 @@ export const table3Data = {
   ],
 };
 
+// View 2 statistic 4 blocks
 export const statistic1Data = {
   title: "Statistic 1",
   value: "Value 1",
@@ -402,6 +409,7 @@ export const statistic4Data = {
   value: "Value 4",
 };
 
+// Chart data view 2
 export const groupcolumnData = {
   config: {
     isGroup: true,
@@ -494,6 +502,7 @@ export const groupcolumnData = {
   ],
 };
 
+// List Data view 2
 export const listdata = [
   {
     title: "Ant Design Title 1",

@@ -9,6 +9,10 @@ import {
   view1Data,
   View2Slug,
   view2Data,
+  View3Slug,
+  view3Data,
+  View4Slug,
+  view4Data,
   listdata,
   StatisticSlug1,
   statistic1Data,
@@ -27,6 +31,10 @@ export const getViewData = (viewType) => {
     return view1Data;
   } else if (viewType === View2Slug) {
     return view2Data;
+  } else if (viewType === View3Slug) {
+    return view3Data;
+  } else if (viewType === View4Slug) {
+    return view4Data;
   }
 };
 

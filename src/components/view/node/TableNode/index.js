@@ -1,32 +1,20 @@
 import { useEffect, useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import {
-  Input,
   Menu,
   Dropdown,
   Space,
-  Form,
-  Button,
-  message,
-  Divider,
   Card,
   Table,
 } from "antd";
-import { useHistory, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getTableDetails } from "../../../../services/api";
 import {
   fetchComponentData,
-  setError,
-  setLoading,
   setView,
 } from "../../../../actions/tableActions";
 
-const { Search } = Input;
-
 const TableView = ({ tableDetail, filter, handleRowClick }) => {
-  const params = useParams();
-  const history = useHistory();
   const dispatch = useDispatch();
   const [results, setResults] = useState([]);
   const [columns, setColumns] = useState([]);
