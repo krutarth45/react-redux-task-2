@@ -8,13 +8,16 @@ const BreadCrumbMenu = (props) => {
   const views = useSelector((state) => state.views);
 
   const handleNavigation = (breadcrumb) => {
+    if(breadcrumb === views[views.length - 1]) return;
     dispatch(setView(breadcrumb));
   };
 
   return (
     <Breadcrumb style={{ margin: "10px 0px" }}>
       {views?.map((listItem, i) => (
-        <Breadcrumb.Item onClick={() => handleNavigation(listItem)} key={i}>
+        <Breadcrumb.Item onClick={() => 
+            handleNavigation(listItem)
+          } key={i}>
           <a href={"#"}>{listItem}</a>
         </Breadcrumb.Item>
       ))}

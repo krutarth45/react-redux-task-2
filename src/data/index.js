@@ -162,8 +162,142 @@ export const view2Data = {
   workspace_id: 19841279847129,
 };
 
-export const view3Data = {}
-export const view4Data = {}
+export const view3Data = {
+  description: null,
+  id: "232814739813",
+  name: "Test View3",
+  slug: "test-view3",
+  view: {
+    id: "1",
+    name: "Test View3",
+    slug: "test-view3",
+    nodes: [
+      {
+        order_number: 1,
+        size: 24,
+        node: {
+          id: "1939184701940",
+          name: "Test View3",
+          node_type: "table",
+          order_number: 2,
+          slug: "test-view1",
+          table: {
+            title: "Test Table3",
+          },
+        },
+      },
+    ],
+  },
+  users: [
+    {
+      email: "test@gmail.com",
+      id: "12489128413821823",
+      joined_at: "2022-08-09",
+      name: "Test1",
+      role: "admin",
+      status: "active",
+    },
+  ],
+  workspace_id: 19841279847129,
+};
+export const view4Data = {
+  description: null,
+  id: "232814739814",
+  name: "Test View4",
+  slug: "test-view4",
+  view: {
+    id: "1",
+    name: "Test View4",
+    slug: "test-view4",
+    nodes: [
+      {
+        order_number: 3,
+        size: 6, // Assume a page size is 24
+        node: {
+          id: "1939184701939",
+          name: "Test View4",
+          node_type: "statistic", // https://ant.design/components/statistic/
+          order_number: 2,
+          slug: "statistic-1",
+        },
+      },
+      {
+        order_number: 3,
+        size: 6,
+        node: {
+          id: "1939184701939",
+          name: "Test View4",
+          node_type: "statistic",
+          order_number: 2,
+          slug: "statistic-2", // https://ant.design/components/statistic/
+        },
+      },
+      {
+        order_number: 3,
+        size: 6,
+        node: {
+          id: "1939184701939",
+          name: "Test View4",
+          node_type: "statistic", // https://ant.design/components/statistic/
+          order_number: 2,
+          slug: "statistic-3",
+        },
+      },
+      {
+        order_number: 3,
+        size: 6,
+        node: {
+          id: "1939184701939",
+          name: "Test View4",
+          node_type: "statistic", // https://ant.design/components/statistic/
+          order_number: 2,
+          slug: "statistic-4",
+        },
+      },
+      {
+        order_number: 4,
+        size: 12,
+        height: 8, // Assume one full screen is 24
+        node: {
+          id: "1939184701938",
+          name: "Test ",// https://charts.ant.design/en/examples/column/grouped#basic
+          order_number: 2,
+          slug: "group-column-chart-1",
+          node_type: "chart",
+          table: {
+            title: "Test Chart",
+          },
+        },
+      },
+      {
+        order_number: 4,
+        size: 12,
+        height: 8, // Assume one full screen is 24
+        node: {
+          id: "1939184701938",
+          name: "Test ",
+          node_type: "list", //https://ant.design/components/list/ - one with title and description
+          order_number: 2,
+          slug: "list-view1",
+          table: {
+            title: "List",
+          },
+        },
+      },
+    ],
+  },
+  users: [
+    {
+      email: "test@gmail.com",
+      id: "12489128413821823",
+      joined_at: "2022-08-09",
+      name: "Test1",
+      role: "admin",
+      status: "active",
+    },
+  ],
+  workspace_id: 19841279847129,
+}
 
 export const table1Data = {
   actions: [
@@ -179,7 +313,7 @@ export const table1Data = {
         description: "View 1",
         id: "23232",
         name: "View 1",
-        slug: "test-view2",
+        slug: "test-view4",
       },
       type: "view",
     },
@@ -329,6 +463,7 @@ export const table3Data = {
         description: "View 1",
         id: "23232",
         name: "View 1",
+        slug: "test-view3",
       },
       type: "view",
     },

@@ -55,7 +55,7 @@ export const tableReducer = (state = initialState, action) => {
       if (index === -1) {
         views = [...views, action.payload];
       } else {
-        views = views.slice(0, index);
+        views = views.slice(0, index + 1);
       }
       state = { ...state, views: views };
 
