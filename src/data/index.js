@@ -32,6 +32,27 @@ export const view1Data = {
           table: {
             title: "Test Table2",
           },
+          availableFilters: [
+            {
+              name: "Gender",
+              type: "checkbox",
+              value: [
+                {
+                  text: 'Male',
+                  value: 'male',
+                },
+                {
+                  text: 'Female',
+                  value: 'female',
+                },
+              ],
+            },
+            {
+              name: "Email",
+              type: "textBox",
+              value: "abc@example.com"
+            }
+          ]
         },
       },
     ],

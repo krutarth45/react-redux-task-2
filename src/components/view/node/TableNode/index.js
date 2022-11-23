@@ -6,6 +6,10 @@ import {
   Space,
   Card,
   Table,
+  Input,
+  Select,
+  Button,
+  Checkbox,
 } from "antd";
 import { useDispatch } from "react-redux";
 import { getTableDetails } from "../../../../services/api";
@@ -19,7 +23,13 @@ const TableView = ({ tableDetail, filter, handleRowClick }) => {
   const [results, setResults] = useState([]);
   const [columns, setColumns] = useState([]);
   const [actions, setActions] = useState([]);
-
+  const [filteredColumnsList, setFilteredColumnsList] = useState([]);
+  const [apiFilters, setApiFilters] = useState(tableDetail.availableFilters.map(item => {
+    return {
+      key: item.name,
+      value: ''
+    }
+  }))
   useEffect(() => {
     const fetchTableData = async () => {
       if (!tableDetail) return;
@@ -52,9 +62,86 @@ const TableView = ({ tableDetail, filter, handleRowClick }) => {
     }
   }
 
+  function handleMainFilterButton(checkedValues) {
+    setFilteredColumnsList(checkedValues)
+  }
+
+  async function handleSelectFilter(e, name) {
+    let array1 = apiFilters
+    array1 = array1.map(item => {
+      if (item.key === name) {
+        return {
+          key: item.key,
+          value: e
+        }
+      }
+      return item;
+    })
+    await setApiFilters(array1);
+  }
+
+  async function handleInputFilter(e, name) {
+    let array1 = apiFilters
+    array1 = array1.map(item => {
+      if (item.key === name) {
+        return {
+          key: item.key,
+          value: e.target.value
+        }
+      }
+      return item;
+    })
+    await setApiFilters(array1);
+  }
+  
+  async function handleSubmit() {
+    let array2 = apiFilters.filter(item => {
+      let index = filteredColumnsList.indexOf(item.key)
+      if (index === -1) return false;
+      return true;
+    })
+    await setApiFilters(array2);
+  }
+  console.log("API: ",apiFilters);
+  console.log("filter", filteredColumnsList);
+
   return (
     <>
       <Card className="table-card" title={tableDetail.name}>
+      <Dropdown
+                      overlay={
+                        <Checkbox.Group onChange={handleMainFilterButton} options={tableDetail.availableFilters.map((item) => {
+                          return item.name
+                        })} />
+                      }
+                    >
+        <Button>Add Filters</Button>
+      </Dropdown>
+      
+        {tableDetail?.availableFilters.map((item) => {
+          if(item.type === "checkbox" && filteredColumnsList.includes(item.name)) {
+            return (
+              <>
+                <Select
+                  key={item.name} 
+                  options={item.value}
+                  style= {{
+                    width: 120
+                  }}
+                  onChange={(e) => handleSelectFilter(e, item.name)}
+                />
+              </>
+            )
+          } else if (item.type === "textBox" && filteredColumnsList.includes(item.name)) {
+            return (
+
+            <>
+            <Input defaultValue={item.value} onChange={(e) => handleInputFilter(e, item.name)}/>
+            </>
+            )
+          }
+        })}
+        <Button onClick={handleSubmit}>Submit</Button>
         <Table
           columns={[
             ...columns
