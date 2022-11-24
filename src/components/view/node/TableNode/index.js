@@ -100,7 +100,18 @@ const TableView = ({ tableDetail, filter, handleRowClick }) => {
       if (index === -1) return false;
       return true;
     })
+    console.log("array2", array2);
     await setApiFilters(array2);
+    // Call the API here and send the filters to backend.
+    await refreshFiltersAfterSubmit();
+  }
+  async function refreshFiltersAfterSubmit() {
+    await setApiFilters(tableDetail.availableFilters.map(item => {
+      return {
+        key: item.name,
+        value: ''
+      }
+    }))
   }
   console.log("API: ",apiFilters);
   console.log("filter", filteredColumnsList);
